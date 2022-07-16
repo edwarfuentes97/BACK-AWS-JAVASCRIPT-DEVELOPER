@@ -1,0 +1,22 @@
+{
+  "name": "serverless_task3",
+  "version": "1.0.0",
+  "description": "Solution of the task for module number 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwarfuentes97/BACK-AWS-JAVASCRIPT-DEVELOPER.git"
+  },
+  "keywords": [
+    "aws;serverless;lambda;s3;bucket"
+  ],
+  "author": "Edward Fuentes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwarfuentes97/BACK-AWS-JAVASCRIPT-DEVELOPER/issues"
+  },
+  "homepage": "https://github.com/edwarfuentes97/BACK-AWS-JAVASCRIPT-DEVELOPER#readme"
+}
