@@ -2,7 +2,7 @@ import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
 // @ts-ignore
-import { default as products } from './products.json';
+import { default as products } from '../../shared/products.json';
 
 import schema from './schema';
 

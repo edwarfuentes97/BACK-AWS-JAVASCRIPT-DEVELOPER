@@ -27,41 +27,70 @@
           }
         }
       }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "getProductsById",
+        "description": "",
+        "operationId": "getProductsById.get.products/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
-    "Products": {
+    "Product": {
       "properties": {
-        "\"count\"": {
-          "title": "Products.\"count\"",
+        "count": {
+          "title": "Product.count",
           "type": "number"
         },
-        "\"id\"": {
-          "title": "Products.\"id\"",
+        "description": {
+          "title": "Product.description",
           "type": "string"
         },
-        "\"description\"": {
-          "title": "Products.\"description\"",
+        "id": {
+          "title": "Product.id",
           "type": "string"
         },
-        "\"title\"": {
-          "title": "Products.\"title\"",
-          "type": "string"
-        },
-        "\"price\"": {
-          "title": "Products.\"price\"",
+        "price": {
+          "title": "Product.price",
           "type": "number"
+        },
+        "title": {
+          "title": "Product.title",
+          "type": "string"
         }
       },
       "required": [
-        "\"count\"",
-        "\"id\"",
-        "\"description\"",
-        "\"title\"",
-        "\"price\""
+        "count",
+        "description",
+        "id",
+        "price",
+        "title"
       ],
       "additionalProperties": false,
-      "title": "Products",
+      "title": "Product",
       "type": "object"
     }
   },
