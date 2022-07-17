@@ -2,7 +2,7 @@
 import { handlerPath } from '@libs/handler-resolver';
 
 export const getProductsList = {
-  handler: `${handlerPath(__dirname)}/handler.GetProductsList`,
+  handler: `${handlerPath(__dirname)}/handler.getProductsList`,
   events: [
     {
       http: {
@@ -10,9 +10,6 @@ export const getProductsList = {
         path: 'products',
         cors: {
           origin: '*'
-        },
-        request: {
-
         },
         responses: {
           '200': {
