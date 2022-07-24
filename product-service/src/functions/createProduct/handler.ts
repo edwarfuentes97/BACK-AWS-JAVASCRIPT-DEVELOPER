@@ -1,10 +1,8 @@
 
 import { middyfy } from '@libs/lambda';
 import cors from '@middy/http-cors';
-// @ts-ignore
-import { default as products } from '../../shared/products.json';
 import {formatJSONResponse} from "@libs/api-gateway";
-
+import { v4 as UUID } from 'uuid';
 const { Pool } = require('pg');
 
 const pool = new Pool ({
@@ -17,19 +15,21 @@ const pool = new Pool ({
 })
 
 
-export const getProductsList = middyfy( async ()  => {
+
+export const createProduct = middyfy( async (event)  => {
   pool.connect((err, client, release) => {
     if (err) {
       return console.error('Error acquiring client', err.stack)
     }
-    client.query('SELECT * FROM products INNER JOIN stocks ON products.id = stocks.product_id'
+    client.query('INSERT INTO products (id, title, description, price) VALUES($1, $2, $3, $4) RETURNING *',
+      [UUID(), event.body.title, event.body.description, event.body.price]
       , (err, result) => {
         release()
         if (err) {
           return console.error('Error executing query', err.stack)
         }
-        console.log(result.rows)
-        return formatJSONResponse(result.rows);
+        return formatJSONResponse(result);
       })
   })
+
 }).use(cors());

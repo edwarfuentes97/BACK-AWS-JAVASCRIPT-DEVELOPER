@@ -1,6 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 
-import {getProductsList , getProductsById} from '@functions/index';
+import {getProductsList , getProductsById , createProduct} from '@functions/index';
+
 
 const serverlessConfiguration: AWS = {
   service: 'product-service',
@@ -20,12 +21,38 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      DATABASE_HOST: '', // dont in github for security reasons
+      DATABASE_PORT: '5432',
+      DATABASE_USERNAME: 'postgres',
+      DATABASE_PASSWORD: '', // dont in github for security reasons
+      DATABASE_NAME: 'rds_shop_db',
     },
+    iamRoleStatements: [
+      {
+        Effect: 'Allow',
+        Action: [
+          'dynamodb:DescribeTable',
+          'dynamodb:Query',
+          'dynamodb:Scan',
+          'dynamodb:GetItem',
+          'dynamodb:PutItem',
+          'dynamodb:UpdateItem',
+          'dynamodb:DeleteItem',
+          'ec2:CreateNetworkInterface',
+          'ec2:DescribeNetworkInterfaces',
+          'ec2:DeleteNetworkInterface',
+        ],
+        Resource: [
+         '*'
+        ]
+      }
+    ]
   },
   // import the function via paths
   functions: {
-    getProductsList ,
-    getProductsById
+    getProductsList,
+    getProductsById,
+    createProduct
   },
   package: { individually: true },
   custom: {
@@ -33,7 +60,7 @@ const serverlessConfiguration: AWS = {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ['aws-sdk'],
+      exclude: ['aws-sdk', 'pg-native'],
       target: 'node14',
       define: { 'require.resolve': undefined },
       platform: 'node',
