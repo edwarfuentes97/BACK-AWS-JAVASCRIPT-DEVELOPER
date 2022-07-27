@@ -1,5 +1,13 @@
 ### U can find the script with the data in the file script.sql 
 
+>endpoints:
+GET - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products
+GET - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+POST - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products
+GET - https://srgmbxvk3e.execute-api.us-east-1.amazonaws.com/dev/swagger
+GET - https://srgmbxvk3e.execute-api.us-east-1.amazonaws.com/dev/swagger.json
+
+
 ### connected from dbeaver 
 ![img_1.png](img_1.png)
 
