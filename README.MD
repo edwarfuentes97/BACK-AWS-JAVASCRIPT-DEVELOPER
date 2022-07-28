@@ -1,11 +1,21 @@
 ### U can find the script with the data in the file script.sql 
 
->endpoints:
-GET - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products
-GET - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products/{id}
-POST - https://44qx80w3s1.execute-api.us-east-1.amazonaws.com/dev/products
-GET - https://srgmbxvk3e.execute-api.us-east-1.amazonaws.com/dev/swagger
-GET - https://srgmbxvk3e.execute-api.us-east-1.amazonaws.com/dev/swagger.json
+
+> get all products
+`GET - https://nkr7iilk63.execute-api.us-east-1.amazonaws.com/dev/products`
+
+> Get products by id
+`GET - https://nkr7iilk63.execute-api.us-east-1.amazonaws.com/dev/products/{id}`
+
+> Create product
+`POST - https://nkr7iilk63.execute-api.us-east-1.amazonaws.com/dev/products`
+
+> Swagger docs
+`GET - https://nio0tbd69c.execute-api.us-east-1.amazonaws.com/dev/swagger`
+
+> Swagger Json 
+>GET - https://nio0tbd69c.execute-api.us-east-1.amazonaws.com/dev/swagger.json
+
 
 
 ### connected from dbeaver 
