@@ -21,10 +21,10 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
-      DATABASE_HOST: '', // dont in github for security reasons
+      DATABASE_HOST: 'cloud-shop-x.ceitxigf0mpt.us-east-1.rds.amazonaws.com', // dont in github for security reasons
       DATABASE_PORT: '5432',
       DATABASE_USERNAME: 'postgres',
-      DATABASE_PASSWORD: '', // dont in github for security reasons
+      DATABASE_PASSWORD: 'passw0rd', // dont in github for security reasons
       DATABASE_NAME: 'products_db_x',
     },
     iamRoleStatements: [
